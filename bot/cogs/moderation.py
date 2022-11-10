@@ -21,8 +21,11 @@ class Moderation(commands.Cog):
         await self.client.process_commands(message)
 
     @app_commands.command()
-    async def kick(self, interaction: discord.Interation, member: discord.Member):
-        pass
+    @app_commands.checks.has_permissions(kick_members=true)
+    async def kick(self, interaction: discord.Interation, member: discord.Member, reason='Kicked for a non-descript reason': str):
+        """Kicks specified used"""
+        await member.kick(reason=reason)
+        await interation.response.send_message(f'Kicked {member.name}')
 
 async def setup(client):
     await client.add_cog(Moderation(client))
