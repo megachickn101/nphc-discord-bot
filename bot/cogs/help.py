@@ -8,6 +8,7 @@ class Help(commands.Cog):
 
     @app_commands.command()
     async def help(self, interaction: discord.Interaction):
+        """Get command list"""
         embed = discord.Embed(title='Click Here For Command List', color=discord.Color.blue(), url='http://nphcdiscord.ml/')
         await interaction.response.send_message(embed=embed)
 

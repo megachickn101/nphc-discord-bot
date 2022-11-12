@@ -23,13 +23,14 @@ class Moderation(commands.Cog):
     @app_commands.command()
     @app_commands.checks.has_permissions(kick_members=True)
     async def kick(self, interaction: discord.Interaction, member: discord.Member, reason: str):
-        """Kicks specified used"""
+        """Kicks specified user"""
         await member.kick(reason=reason)
         await interaction.response.send_message(f'Kicked {member.name}')
 
     @app_commands.command()
     @app_commands.checks.has_permissions(ban_members=True)
     async def ban(self, interaction: discord.Interaction, member: discord.Member, reason: str):
+        """Bans specified user"""
         await member.ban(reason=reason)
         await interaction.response.send_message(f'Banned {member.name}')
 

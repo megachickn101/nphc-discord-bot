@@ -9,7 +9,12 @@ class Register(commands.Cog):
 
     @app_commands.command()
     async def register(self, interaction: discord.Interaction, email: str, first_name: str, last_name: str):
-        """Register your name and email with the NPSS Hack Club"""
+        """Register your name and email with the NPSS Hack Club & gain access to the server."""
+        role_id = 956341649120829460
+        for i in range(len(interaction.guild.get_member(interaction.user.id).roles)):
+            if interaction.guild.get_member(interaction.user.id).roles[i].id == role_id:
+                await interaction.response.send_message(f'You have already registered.')
+                return
         registrants = open('registrations.csv', 'a')
         if not email.endswith('@pdsb.net'):
             await interaction.response.send_message('Please use your school email.')
@@ -21,6 +26,7 @@ class Register(commands.Cog):
 """)
         registrants.close()
         await interaction.response.send_message(f'Thank you for registering!')
+        await interaction.guild.get_member(interaction.user.id).add_roles(interaction.guild.get_role(role_id))
 
 async def setup(client):
     await client.add_cog(Register(client))

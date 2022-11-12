@@ -3,9 +3,6 @@ from discord.ext import commands
 from discord import app_commands
 import os
 
-def is_it_me(interaction: discord.Interaction) -> bool:
-    return interaction.user.id == int(open('user_id', 'r').read())
-
 intents = discord.Intents.all()
 
 class MyClient(commands.Bot):
