@@ -17,7 +17,6 @@ class Moderation(commands.Cog):
             if self.swear_words[i] in message.content.lower():
                 await message.delete()
                 print(f'{message.author.name} said {self.swear_words[i]}.')
-
         await self.client.process_commands(message)
 
     @app_commands.command()
