@@ -1,0 +1,4 @@
+discord.py==2.0.1
+asyncpraw==7.6.0
+pysourcebin==0.0.4
+requests==2.27.1

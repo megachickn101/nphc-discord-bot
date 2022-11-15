@@ -15,6 +15,5 @@ class Sourcebin(commands.Cog):
             await message.channel.send(f"{message.author.mention}, You code was automatically uploaded to {url}. Please use a code sharing service when possible. :)")
         await self.client.process_commands(message)
 
-
 async def setup(client):
     await client.add_cog(Sourcebin(client))
